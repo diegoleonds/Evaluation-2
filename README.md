@@ -1,6 +1,6 @@
 # Evaluation-1-c
 
-Java web application for college.
+Java web application for college
 
 ## About this project
 
