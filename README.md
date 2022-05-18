@@ -14,7 +14,7 @@ An application to register books and authors
     - Register and list books
 
 - Authors 
-    - Register and list games
+    - Register and list authors
 
 ## Instructions
 
