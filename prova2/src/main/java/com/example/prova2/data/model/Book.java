@@ -12,14 +12,12 @@ public class Book extends BaseEntity {
     @Column(name = "title", nullable = false)
     private String title;
 
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    @Column(name = "author", nullable = false)
-//    private Author author;
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Author author;
 
-    public Book(Long id, String title, Author author) {
-        this.id = id;
+    public Book(String title, Author author) {
         this.title = title;
-//        this.author = author;
+        this.author = author;
     }
 
     public Book() {
@@ -30,7 +28,6 @@ public class Book extends BaseEntity {
         this.id = id;
     }
 
-    @Id
     public Long getId() {
         return id;
     }
@@ -43,11 +40,11 @@ public class Book extends BaseEntity {
         this.title = title;
     }
 
-//    public Author getAuthor() {
-//        return author;
-//    }
-//
-//    public void setAuthor(Author author) {
-//        this.author = author;
-//    }
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
 }

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface Dao<E extends BaseEntity> {
     E getBydId(long id);
-    List<E> getByAll();
+    List<E> getAll();
     void insert(E entity);
     void delete(E entity);
     void update(E entity);

@@ -15,20 +15,16 @@ public abstract class HibernateDao<E extends BaseEntity> implements Dao<E> {
     @Override
     public E getBydId(long id) {
         Session session = getSession();
-        E entity = session.find(getEntityClass(), id);
-        session.close();
-        return entity;
+        return session.find(getEntityClass(), id);
     }
 
     @Override
-    public List<E> getByAll() {
+    public List<E> getAll() {
         Session session = getSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<E> criteria = builder.createQuery(getEntityClass());
         criteria.from(getEntityClass());
-        List<E> entities = session.createQuery(criteria).getResultList();
-        session.close();
-        return entities;
+        return session.createQuery(criteria).getResultList();
     }
 
     @Override
@@ -37,24 +33,21 @@ public abstract class HibernateDao<E extends BaseEntity> implements Dao<E> {
         session.beginTransaction();
         session.save(entity);
         session.getTransaction().commit();
-        session.close();
     }
 
     @Override
     public void delete(E entity) {
         Session session = getSession();
 
-        session.close();
     }
 
     @Override
     public void update(E entity) {
         Session session = getSession();
 
-        session.close();
     }
 
-    private Session getSession() {
+    protected Session getSession() {
         return DbConfig.getSession();
     }
 }
